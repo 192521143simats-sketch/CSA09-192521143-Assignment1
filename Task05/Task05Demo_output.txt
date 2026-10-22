@@ -1,0 +1,5 @@
+Unique across facilities: true
+Shared issued count: 2
+North occupancy: 1; South occupancy: 1
+North after exit: 0
+Ticket becomes GC eligible only after all references disappear
