@@ -1,0 +1,4 @@
+Short constructor role: VISITOR
+Full constructor role: STAFF
+Different ticket identities: true
+Vehicle reference retained: Car TN01A1
