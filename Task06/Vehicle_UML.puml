@@ -1,0 +1,19 @@
+@startuml
+abstract class Vehicle {
+  -regNo: String
+  +getRegNo(): String
+  +calculateFee(minutes: long): long
+  +calculateFee(in: LocalDateTime, out: LocalDateTime): long
+  {abstract} #ratePerHour(): long
+}
+class TwoWheeler
+class Car
+class ElectricCar
+interface Chargeable {
+  +chargingFee(kWh: int): long
+}
+Vehicle <|-- TwoWheeler
+Vehicle <|-- Car
+Car <|-- ElectricCar
+Chargeable <|.. ElectricCar
+@enduml

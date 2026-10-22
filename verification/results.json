@@ -1,0 +1,70 @@
+{
+  "java_version": "21.0.12.1",
+  "release_target": 17,
+  "baseline_tests_passed": 43,
+  "challenge_tests_passed": 31,
+  "expected_program_outputs_match": true,
+  "source_comments_or_todos": false,
+  "tasks": [
+    {
+      "task": 1,
+      "java_files": 1,
+      "screenshots": 1
+    },
+    {
+      "task": 2,
+      "java_files": 1,
+      "screenshots": 1
+    },
+    {
+      "task": 3,
+      "java_files": 1,
+      "screenshots": 1
+    },
+    {
+      "task": 4,
+      "java_files": 1,
+      "screenshots": 1
+    },
+    {
+      "task": 5,
+      "java_files": 1,
+      "screenshots": 1
+    },
+    {
+      "task": 6,
+      "java_files": 1,
+      "screenshots": 2
+    },
+    {
+      "task": 7,
+      "java_files": 1,
+      "screenshots": 1
+    },
+    {
+      "task": 8,
+      "java_files": 2,
+      "screenshots": 2
+    },
+    {
+      "task": 9,
+      "java_files": 1,
+      "screenshots": 1
+    },
+    {
+      "task": 10,
+      "java_files": 1,
+      "screenshots": 1
+    },
+    {
+      "task": 11,
+      "java_files": 2,
+      "screenshots": 3
+    },
+    {
+      "task": 12,
+      "java_files": 2,
+      "screenshots": 2
+    }
+  ]
+}
