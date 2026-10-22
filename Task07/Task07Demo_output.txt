@@ -1,0 +1,6 @@
+Car TN02B2
+ElectricCar TN02B2
+Equal by registration: true
+Same hash: true
+Set size: 1
+Overridden rate: bike=10, car=30
