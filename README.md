@@ -1,67 +1,78 @@
-# Campus Smart-Parking Assignment 1
+# Campus Smart-Parking System — Assignment 1
 
-Name: R SARVESH  
-Register number: 192521143  
-Executed JDK: Oracle Java 21.0.12.1; compiled with `--release 17`.  
-Submission repository: https://github.com/192521143simats-sketch/CSA09-192521143-Assignment1  
-Additional destination specified in the master prompt: https://github.com/192521143simats-sketch/CSA0920--JAVA-PROGRAMMING
+Name: R SARVESH
 
-## Compile, run and test
+Register number: 192521143
 
-Open PowerShell in this repository. No Maven or third-party Java library is needed.
+Java version used: Oracle JDK 21.0.12.1, compiled for Java 17.
+
+GitHub: https://github.com/192521143simats-sketch/CSA09-192521143-Assignment1
+
+## Compile
+
+Run these commands in PowerShell from the repository root. A JDK version of 17 or later is required. There are no third-party Java dependencies.
 
 ```powershell
-.\compile.ps1
-java -cp build parking.app.Main
-java -cp build parking.app.Main CAR TN01A1
-.
-un-all.ps1
-.\Task03
-un.ps1
-.\Task08
-un.ps1
-.\Task11
-un.ps1
-.\Task12
-un.ps1
+New-Item -ItemType Directory -Force build | Out-Null
+$sourceFiles = (Get-ChildItem .\src -Recurse -Filter *.java).FullName
+javac --release 17 -d build $sourceFiles
+
+1..12 | ForEach-Object {
+    $task = 'Task{0:D2}' -f $_
+    New-Item -ItemType Directory -Force "build\$task" | Out-Null
+    $taskSources = (Get-ChildItem ".\$task" -Filter *.java).FullName
+    javac --release 17 -cp build -d "build\$task" $taskSources
+}
 ```
 
-For any individual task run `.\TaskNN
-un.ps1`; it compiles the shared code, compiles that task into `build/TaskNN`, then runs every main class in that task. Task03 and Task08 are kept in isolated classpaths because their supplied class names overlap the integrated model. Their main executable statements are unchanged; source comments are omitted to satisfy the master prompt.
+Each task compiles separately because the class names in the supplied exercises overlap the integrated vehicle model. Task03 and Task08 retain the supplied program behaviour; their public entry classes are named Task03 and Task08.
 
-## Files and results
+## Run each task
 
-| Task | Source/main | Result |
+| Task | Command | Result |
 |---|---|---|
-| 01 | Task01Demo.java | Vehicle objects and registration search demonstrated |
-| 02 | Task02Demo.java | Jagged capacities and 61-minute billing precision demonstrated |
-| 03 | ParkingFacility.java | All six supplied output lines match |
-| 04 | Task04Demo.java | Short/full constructors and shared references demonstrated |
-| 05 | Task05Demo.java | Two facilities issue distinct tickets; shared sequence demonstrated |
-| 06 | Task06Demo.java | Constructor trace and UML hierarchy |
-| 07 | Task07Demo.java | Registration equality, hashing and overriding demonstrated |
-| 08 | FeeDemo.java, OverloadDemo.java | All four expected lines match; fee overloads demonstrated |
-| 09 | Task09Demo.java | Abstract base, capability, default/static interface methods |
-| 10 | Task10Demo.java | Validated state changes and wrapper value equality |
-| 11 | SystemTests.java, LookupBenchmark.java | 43 assertions pass; measured lookup comparison |
-| 12 | ChallengeDemo.java, ChallengeTests.java | 31 assertions pass; extended demo collects Rs 110 |
+| 1 | `java -cp "build/Task01;build" Task01` | Creates different vehicle objects and finds a registration |
+| 2 | `java -cp "build/Task02;build" Task02` | Shows unequal floor capacities and correct 61-minute billing |
+| 3 | `java -cp "build/Task03;build" Task03` | Matches all six supplied output lines |
+| 4 | `java -cp "build/Task04;build" Task04` | Exercises short and full ticket constructors |
+| 5 | `java -cp "build/Task05;build" Task05` | Confirms distinct ticket identities across two facilities |
+| 6 | `java -cp "build/Task06;build" Task06` | Prints the superclass-to-subclass constructor trace |
+| 7 | `java -cp "build/Task07;build" Task07` | Confirms registration equality and consistent hashing |
+| 8 | `java -cp "build/Task08;build" Task08` | Matches all four supplied output lines |
+| 9 | `java -cp "build/Task09;build" Task09` | Exercises abstract-class and interface behaviour |
+| 10 | `java -cp "build/Task10;build" Task10` | Rejects invalid state changes and compares wrapper values |
+| 11 | `java -cp "build/Task11;build" Task11` | Passes 43 assertions, including the Rs 330 collection check |
+| 12 | `java -cp "build/Task12;build" Task12` | Exercises the new categories and day pass; collects Rs 110 |
 
-Each TaskNN folder contains Java source, deterministic input description, the executed output logs, genuine PNG screenshots of the Java process output, Answer.md and run.ps1. The screenshot viewer launches each Java main as a subprocess, captures its real output and exit status, and displays them in a Swing window; screenshots are native window captures, not rendered imitations of terminal output. Full output logs supplement screenshots where scrolling is needed. Task06 also contains UML source and a diagram.
+Additional required comparisons and tests:
 
-Shared code is under `src/parking/{model,pass,pricing,service,app}`. `docs/Assignment_Report.pdf` and `.docx` contain only task numbers and answers, in 12-point Times New Roman; no cover page, repeated question text or unrelated introductory text is included, following the latest user instruction. The GitHub link is recorded here and in the Task11 answer because a cover page was explicitly excluded.
+```powershell
+java -cp "build/Task08;build" Task08Overloading
+java -cp "build/Task11;build" Task11Benchmark
+java -cp "build/Task12;build" Task12Tests
+```
 
-## Billing assumptions
+Task12Tests passes 31 assertions. Together, Tasks 11 and 12 contain 74 passing assertions. Benchmark timings vary between runs.
 
-General slots accept all categories. The final slot on each floor with capacity >1 is charging-only; a one-slot floor is general. Baseline rates: two-wheeler Rs 10/hour, car/EV Rs 30/hour; every started hour is charged, zero duration is free. Electricity is Rs 12/kWh and is never waived by a parking pass. No unspecified daily cap is invented.
+The integrated baseline application can also be run with:
 
-Monthly passes are bound to registration and the calendar month and apply only to staff/students. Both endpoints must be covered. Visitor day passes cover a specified calendar date; exit at next midnight is outside validity. Pass purchase prices were not supplied and are not included in collection.
+```powershell
+java -cp build parking.app.Main
+java -cp build parking.app.Main CAR TN01A1
+```
 
-E-bikes cost a flat Rs 20 for any positive stay. Van rates are Rs 60/hour during [09:00,17:00), Rs 30/hour otherwise; actual time overlap is prorated and the final total rounded upward to a whole rupee. This documented changed van rule does not round each time band up to an hour. Test times are deterministic local campus times.
+## Files
 
-## Design evaluation and limits
+- `Task01`–`Task12`: Java source and output screenshots; Task06 also contains the UML diagram.
+- `src/parking`: shared model, service, pass, pricing and application classes.
+- `docs/Assignment_Report.pdf` and `docs/Assignment_Report.docx`: answers, pseudocode, UML, test tables and complexity analysis.
 
-Active tickets use a fixed-capacity array. Original tested pricing remains usable; new rules are selected with ChallengePricing in Task12. Four extension classes were added. Two existing classes were tightened in Task12: ParkingTicket now returns an immutable Position, and ParkingFacility resolves that position to its private Slot before release. This prevents a caller from releasing a live slot through a ticket reference. `verification/core_before_task12.json` and `core_change_summary.json` record the actual file comparison.
+Inputs are fixed in the task source files so the runs can be repeated. No external input files are needed. Main accepts optional vehicle-type and registration arguments. PNG output screenshots are browser captures of actual Java process output at 2880-pixel width; longer outputs are split into numbered images. The generated `build` folder is excluded from Git.
 
-This is a single-threaded, in-memory academic model. It has no database, persistence, payment gateway or campus-wide duplicate registry across independently operated facilities. UUID run prefix plus shared counter offers practical cross-run uniqueness; mathematically permanent uniqueness needs durable issuance state. Array lookup is O(capacity); map lookup is average O(1), with more storage overhead. Benchmark timings are illustrative, not a proof of complexity or exact heap measurements.
+## Assumptions
 
-All commits use their real creation times. Task commits are distinct and meaningful; no dates or multi-day development activity have been fabricated. The public submission repository is accessible by the faculty without a collaborator invitation. No faculty identity was supplied, so no invitation was sent. Uploading the final PDF to the university portal remains a student submission step.
+Two-wheelers cost Rs 10 per started hour; cars and EVs cost Rs 30. Zero duration is free. Electricity costs Rs 12/kWh and is not waived by a pass. The last slot on a floor with at least two slots is reserved for charging; other slots are general. Monthly passes cover staff/students for a specified registration and calendar month. Visitor day passes cover one registration and one calendar date, excluding the next midnight.
+
+E-bikes cost Rs 20 for any positive stay. Delivery vans cost Rs 60/hour during 09:00–17:00 and Rs 30/hour otherwise; actual overlap is prorated and the final total is rounded upward to a whole rupee. Pass purchase prices and a daily parking cap were not specified and are not added.
+
+The application uses in-memory state and one thread. Ticket IDs combine a process UUID and shared counter; permanent guaranteed uniqueness and recovery after restart would require persistent storage.

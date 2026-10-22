@@ -1,5 +1,0 @@
-Abstract Vehicle reference: ElectricCar TN01E1
-Charging capability: Rs 120
-Default interface method: Charging billed separately
-Static interface validation: accepted zero kWh
-Unrelated interface capability supported independently of Vehicle state

@@ -1,3 +1,0 @@
-Deterministic test inputs are the literals in LookupBenchmark.java, SystemTests.java.
-No standard-input stream is required.
-Local test date: 2026-10-22.

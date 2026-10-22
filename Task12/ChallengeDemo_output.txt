@@ -1,6 +1,0 @@
-Five floor capacities: [2, 3, 4, 2, 5]; total=16
-E-bike flat fee for 2 hours: Rs 20
-Van 08:00-10:00 (30 + 60): Rs 90
-Visitor one-day pass parking: Rs 0
-Total collection: Rs 110
-Occupancy after exits: 0

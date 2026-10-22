@@ -1,5 +1,0 @@
-n,array_ns_per_lookup,list_ns_per_lookup,map_ns_per_lookup
-20,300,460,160
-150,637,1085,234
-500,5591,4409,26
-Last-key lookup; warm-up=10000, repetitions=20000; illustrative JVM timings

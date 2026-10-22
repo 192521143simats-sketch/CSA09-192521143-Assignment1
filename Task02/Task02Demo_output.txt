@@ -1,5 +1,0 @@
-Floor capacities: [20, 50, 100]
-Wrong integer hours: 1
-Wrong fee: Rs 30
-Correct fee: Rs 60
-Input: command-line arguments; times: LocalDateTime; fees: long rupees

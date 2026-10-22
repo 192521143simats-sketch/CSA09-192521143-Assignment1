@@ -1,4 +1,0 @@
-Capacities: 2,3,4,2,5
-Test date: 2026-10-22
-Flat e-bike fee: Rs 20; van peak rate: Rs 60/h, off-peak: Rs 30/h
-All remaining deterministic inputs are in ChallengeDemo.java and ChallengeTests.java.

@@ -1,5 +1,0 @@
-Occupied through validated method: true
-Rejected: Slot unavailable
-Rejected: Negative duration
-Wrapper value equality: true
-Packages: parking.model, parking.pass, parking.pricing, parking.service, parking.app
