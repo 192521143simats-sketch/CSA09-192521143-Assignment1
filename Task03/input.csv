@@ -1,0 +1,10 @@
+operation,registration,floor,slot
+configure,,2;1,
+allocate,TN01AB1111,,
+allocate,TN02CD2222,,
+allocate,TN03EF3333,,
+allocate,TN04GH4444,,
+release,,0,1
+release,,0,1
+release,,5,0
+allocate,TN04GH4444,,
