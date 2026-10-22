@@ -1,0 +1,6 @@
+1 Vehicle constructor
+2 Car constructor
+3 ElectricCar constructor
+ElectricCar is Car: true
+ElectricCar is Vehicle: true
+Inherited registration: TN01E1
