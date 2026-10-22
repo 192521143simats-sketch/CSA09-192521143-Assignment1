@@ -1,0 +1,3 @@
+calculateFee(long): 90
+calculateFee(LocalDateTime, LocalDateTime): 90
+Declared Vehicle -> actual ElectricCar -> inherited calculateFee -> Car.ratePerHour
