@@ -1,0 +1,9 @@
+parameter,value
+twoWheeler.registration,TN01A1
+car.registration,TN02B2
+electricCar.registration,TN03C3
+duration.minutes,130
+electricity.kWh,10
+equality.registration,TN02B2
+overloading.entry,2026-10-22T10:00
+overloading.exit,2026-10-22T12:10
