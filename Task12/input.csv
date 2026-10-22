@@ -1,0 +1,22 @@
+parameter,value
+date,2026-10-22
+capacities,2;3;4;2;5
+entry,2026-10-22T08:00
+demo.exit,2026-10-22T10:00
+ebike.registration,EB001
+van.registration,VAN001
+dayPass.registration,DAY001
+ebike.minutes,0;1;3000;-1
+van.intervals,08:00-10:00;16:30-17:30;09:00-17:00;17:00-next09:00;09:00-10:00;17:00-18:00
+van.extra.intervals,zero;1 second;1 nanosecond;24 hours;48 hours;negative
+pass.date,2026-10-22
+pass.last.valid.exit,2026-10-22T23:59
+pass.expired.exit,2026-10-23T00:00
+general.registrations,REG0 through REG10
+charging.registrations,EV00 through EV04
+full.general.registration,FULL1
+full.charging.registration,EV999
+charging.kWh,10
+role,VISITOR
+invalid.pass.role,STAFF
+invalid.pass.registration,OTHER

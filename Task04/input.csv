@@ -1,0 +1,10 @@
+parameter,value
+entry,2026-10-22T10:00
+ticketA.registration,TN01A1
+ticketA.floor,0
+ticketA.slot,0
+ticketA.defaultRole,VISITOR
+ticketB.registration,TN02B2
+ticketB.floor,0
+ticketB.slot,1
+ticketB.role,STAFF

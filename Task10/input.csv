@@ -1,0 +1,8 @@
+parameter,value
+slot.floor,0
+slot.number,0
+first.registration,TN01A1
+second.registration,TN02B2
+invalid.duration.minutes,-1
+wrapper.valueA,1000
+wrapper.valueB,1000

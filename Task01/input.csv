@@ -1,0 +1,8 @@
+parameter,value
+vehicle1.registration,TN01A1
+vehicle1.type,TwoWheeler
+vehicle2.registration,TN02B2
+vehicle2.type,Car
+vehicle3.registration,TN03C3
+vehicle3.type,ElectricCar
+search.registration,TN02B2

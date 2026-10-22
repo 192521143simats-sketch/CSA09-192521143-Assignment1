@@ -1,0 +1,8 @@
+parameter,value
+entry,2026-10-22T10:00
+north.capacities,1
+south.capacities,1
+north.registration,TN01A1
+south.registration,TN02B2
+role,VISITOR
+exit.duration.minutes,60

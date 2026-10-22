@@ -1,0 +1,24 @@
+parameter,value
+entry,2026-10-22T10:00
+capacities,2;1
+car.registration,TN01A1
+bike.registration,TN02B2
+ev.registration,TN03E3
+duration.minutes,0;60;61;130;-1
+duration.seconds,1;-1
+duration.nanos,1
+charging.kWh,10;-1;1
+unknown.type,UFO
+invalid.registration,?
+duplicate.registration,tn01a1
+full.registration,TN04A4
+invalid.floor,-1;5
+invalid.slot,2
+monthly.valid,2026-10
+monthly.expired,2026-09
+monthly.expiry,2026-11-01T00:00
+roles,VISITOR;STUDENT;STAFF
+benchmark.sizes,20;150;500
+benchmark.registration.pattern,REG0 through REG(n-1)
+benchmark.warmup,10000
+benchmark.repetitions,20000

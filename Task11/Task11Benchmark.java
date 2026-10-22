@@ -14,8 +14,8 @@ public class Task11Benchmark {
         for(ParkingTicket t:a) if(t.getVehicle().getRegNo().equals(key)) return t;
         return null;
     }
-    public static void main(String[] args) {
-        System.out.println("n,array_ns_per_lookup,list_ns_per_lookup,map_ns_per_lookup");
+    public static void main(String[] args) throws Exception {
+        System.out.println("n,array_ns,list_ns,map_ns,array_bytes,list_bytes,map_bytes");
         for(int n:new int[]{20,150,500}) {
             ParkingTicket[] a=new ParkingTicket[n];
             java.util.ArrayList<ParkingTicket> list=new java.util.ArrayList<>();
@@ -33,8 +33,14 @@ public class Task11Benchmark {
             long lst=System.nanoTime()-start;start=System.nanoTime();
             for(int i=0;i<repeats;i++) sink=map.get(key).hashCode();
             long hm=System.nanoTime()-start;
-            System.out.println(n+","+arr/repeats+","+lst/repeats+","+hm/repeats);
+            long arrayBytes = Task11MemoryAgent.containerBytes(a);
+            long listBytes = Task11MemoryAgent.containerBytes(list);
+            long mapBytes = Task11MemoryAgent.containerBytes(map);
+            if (arrayBytes <= 0 || listBytes <= 0 || mapBytes <= 0) throw new AssertionError("Invalid memory measurement");
+            System.out.println(n+","+arr/repeats+","+lst/repeats+","+hm/repeats+","+arrayBytes+","+listBytes+","+mapBytes);
         }
-        System.out.println("Last-key lookup; warm-up=10000, repetitions=20000; illustrative JVM timings");
+        System.out.println("Lookup: last key; warm-up=10000; repetitions=20000");
+        System.out.println("Bytes: container, backing arrays and map nodes; shared ticket/key objects excluded");
+        System.out.println("JVM: " + System.getProperty("java.vm.name") + " " + System.getProperty("java.version"));
     }
 }

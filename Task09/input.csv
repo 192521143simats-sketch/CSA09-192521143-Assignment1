@@ -1,0 +1,5 @@
+parameter,value
+vehicle.type,ElectricCar
+registration,TN01E1
+electricity.kWh,10
+validation.kWh,0
