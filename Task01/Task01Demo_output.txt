@@ -1,0 +1,5 @@
+TwoWheeler TN01A1
+Car TN02B2
+ElectricCar TN03C3
+Found: Car TN02B2
+Candidates: Vehicle, Slot, ParkingTicket, ParkingFacility, Pass, PricingRule
