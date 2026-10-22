@@ -50,13 +50,14 @@ public final class ParkingFacility {
         if (out.isBefore(t.getEntry())) throw new IllegalArgumentException("Exit before entry");
         Chargeable.validateUnits(kWh);
         Vehicle v = t.getVehicle();
-        if (kWh > 0 && (!(v instanceof Chargeable) || !t.getSlot().isSuitable(v, true)))
+        Slot booked = slots[t.getSlot().getFloor()][t.getSlot().getNumber()];
+        if (kWh > 0 && (!(v instanceof Chargeable) || !booked.isSuitable(v, true)))
             throw new IllegalArgumentException("No charging booking");
         long fee = t.getPass().covers(v.getRegNo(), t.getRole(), t.getEntry(), out)
             ? 0 : pricing.parkingFee(v, t.getEntry(), out);
         if (v instanceof Chargeable c) fee = Math.addExact(fee, c.chargingFee(kWh));
         long updated = Math.addExact(collection, fee);
-        t.getSlot().release(); active[i] = null; collection = updated; return fee;
+        booked.release(); active[i] = null; collection = updated; return fee;
     }
     public boolean isValidSlot(int floor, int slot) {
         return floor >= 0 && floor < slots.length && slot >= 0 && slot < slots[floor].length;

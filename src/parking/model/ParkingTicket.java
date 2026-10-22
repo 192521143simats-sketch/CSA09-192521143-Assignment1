@@ -25,7 +25,11 @@ public final class ParkingTicket {
     }
     public String getId() { return id; }
     public Vehicle getVehicle() { return vehicle; }
-    public Slot getSlot() { return slot; }
+    public record Position(int floor, int number) {
+        public int getFloor() { return floor; }
+        public int getNumber() { return number; }
+    }
+    public Position getSlot() { return new Position(slot.getFloor(), slot.getNumber()); }
     public LocalDateTime getEntry() { return entry; }
     public String getRole() { return role; }
     public Pass getPass() { return pass; }
