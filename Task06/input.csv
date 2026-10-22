@@ -1,0 +1,4 @@
+parameter,value
+vehicle.type,ElectricCar
+registration,TN01E1
+parking.trace,true during construction

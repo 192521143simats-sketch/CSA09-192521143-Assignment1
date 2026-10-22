@@ -7,6 +7,7 @@ public abstract class Vehicle {
         if (regNo == null || !regNo.trim().matches("[A-Za-z0-9]{3,15}"))
             throw new IllegalArgumentException("Invalid registration");
         this.regNo = regNo.trim().toUpperCase(Locale.ROOT);
+        if (Boolean.getBoolean("parking.trace")) System.out.println("1 Vehicle constructor");
     }
     public final String getRegNo() { return regNo; }
     protected abstract long ratePerHour();
